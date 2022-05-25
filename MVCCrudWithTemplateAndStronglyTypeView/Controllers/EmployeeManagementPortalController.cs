@@ -39,13 +39,21 @@ namespace MVCCrudWithTemplateAndStronglyTypeView.Controllers
 
         // POST: EmployeeManagementPortal/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(ClsEmployee Employee)
         {
             try
             {
+                if (ModelState.IsValid)
+                {
+
+                    Employees.Add(Employee);
+                    return RedirectToAction("Index");
+                }
+                return View();
                 // TODO: Add insert logic here
 
-                return RedirectToAction("Index");
+
+
             }
             catch
             {
