@@ -22,7 +22,7 @@ namespace MVCCrudWithTemplateAndStronglyTypeView.Controllers
         // GET: EmployeeManagementPortal
         public ActionResult Index()
         {
-            return View();
+            return View(Employees.ToList());
         }
 
         // GET: EmployeeManagementPortal/Details/5
