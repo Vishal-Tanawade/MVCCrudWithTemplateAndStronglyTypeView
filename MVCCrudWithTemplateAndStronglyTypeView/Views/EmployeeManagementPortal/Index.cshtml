@@ -47,7 +47,8 @@
             @Html.DisplayFor(modelItem => item.Email)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.EmpID }) |
+            @*string text, actionName*@
+            @Html.ActionLink("Edit", "Edit", new { id=item.EmpID }) | 
             @Html.ActionLink("Details", "Details", new { id=item.EmpID }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.EmpID })
         </td>

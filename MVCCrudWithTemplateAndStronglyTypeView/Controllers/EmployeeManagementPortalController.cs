@@ -28,7 +28,10 @@ namespace MVCCrudWithTemplateAndStronglyTypeView.Controllers
         // GET: EmployeeManagementPortal/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            ClsEmployee employee = Employees.FirstOrDefault(e => e.EmpID == id);
+
+
+            return View(employee);
         }
 
         // GET: EmployeeManagementPortal/Create
