@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVCCrudWithTemplateAndStronglyTypeView.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -6,8 +7,18 @@ using System.Web.Mvc;
 
 namespace MVCCrudWithTemplateAndStronglyTypeView.Controllers
 {
+   
     public class EmployeeManagementPortalController : Controller
     {
+
+        public static List<ClsEmployee> Employees = new List<ClsEmployee>()
+        {
+             new ClsEmployee { EmpID = 1, FirstName = "Aaron", LastName = "Hawkins", Password = "arron@123", CellNumber = "(660) 663-4518", Email = "aron.hawkins@aol.com" },
+             new ClsEmployee { EmpID = 2, FirstName = "Hedy", LastName = "Greene", Password = "hedy@123", CellNumber = "(608) 265-2215", Email = "hedy.greene@aol.com" },
+             new ClsEmployee { EmpID = 3, FirstName = "Melvin", LastName = "Porter", Password = "melvin@123", CellNumber = "(959) 119-8364", Email = "melvin.porter@aol.com" }
+
+        };
+
         // GET: EmployeeManagementPortal
         public ActionResult Index()
         {
