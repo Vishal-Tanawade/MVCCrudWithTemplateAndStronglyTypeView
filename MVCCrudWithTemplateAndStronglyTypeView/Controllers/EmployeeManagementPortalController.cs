@@ -67,19 +67,36 @@ namespace MVCCrudWithTemplateAndStronglyTypeView.Controllers
         // GET: EmployeeManagementPortal/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            ClsEmployee employee = Employees.FirstOrDefault(e => e.EmpID == id);
+
+
+            return View(employee);
         }
 
         // POST: EmployeeManagementPortal/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, FormCollection collection, ClsEmployee employee)
         {
             try
             {
-                // TODO: Add update logic here
+                if (ModelState.IsValid) // it will check validation of form 
+                {
+                    // TODO: Add update logic here
+                    ClsEmployee emp = Employees.FirstOrDefault(e => e.EmpID == id);
+                    emp.EmpID = employee.EmpID;
+                    emp.FirstName = employee.FirstName;
+                    emp.LastName = employee.LastName;
+                    emp.CellNumber = employee.CellNumber;
+                    emp.Email = employee.Email;
+                    emp.Password = employee.Password;
+                    return RedirectToAction("Index");
+                }
+                else
 
-                return RedirectToAction("Index");
-            }
+                {
+                    return View();
+                }
+                }
             catch
             {
                 return View();
