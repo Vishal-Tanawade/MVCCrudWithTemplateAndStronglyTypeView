@@ -106,7 +106,9 @@ namespace MVCCrudWithTemplateAndStronglyTypeView.Controllers
         // GET: EmployeeManagementPortal/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            ClsEmployee employee = Employees.FirstOrDefault(e => e.EmpID == id);
+
+            return View(employee);
         }
 
         // POST: EmployeeManagementPortal/Delete/5
@@ -116,6 +118,9 @@ namespace MVCCrudWithTemplateAndStronglyTypeView.Controllers
             try
             {
                 // TODO: Add delete logic here
+
+                ClsEmployee clsEmployee = Employees.FirstOrDefault(e => e.EmpID == id);
+                Employees.Remove(clsEmployee);
 
                 return RedirectToAction("Index");
             }
